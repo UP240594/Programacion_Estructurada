@@ -19,7 +19,7 @@ public class Transpuesta {
      * }
      * 
      */
-    int[][] trans = transpuesta(a);
+    int[][] trans = transponerMatriz(a);
 
     System.out.println("Matriz original");
     imprimirMatriz(a);
