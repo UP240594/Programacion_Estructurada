@@ -1,13 +1,3 @@
-def ContadorDescendente(n):
-     if n <= 0:
-             print("Boom")
-     else:
-             print(n)
-             ContadorDescendente(n-1)
-             
-
-# print(ContadorDescendente(5))
-
 #Tabla de multiplicar, Descendente
 print("Decendente ")
 def multiplicar(n):
@@ -17,10 +7,7 @@ def multiplicar(n):
        else:
               multiplicar(n-1)
               print("5 *", n, "=", 5 * n)
-
               
-
-
 n=10 
 multiplicar(n)
 
