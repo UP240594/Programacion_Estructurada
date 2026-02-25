@@ -28,7 +28,6 @@ class Cola:
         return self.primero.valor
     
     def enqueue(self,valor):
-        pass
         nuevoNodo = Nodo(valor)
         self.size = self.size + 1
         if self.isEmpty():
@@ -44,6 +43,22 @@ class Cola:
             currentNode=currentNode.siguiente
 
         print("Null");
+
+
+    def dequenue(self):
+        if(self.primero == self.ultimo):
+            self.primero = None
+            self.ultimo = None
+            self.siguiente = None
+
+        self.size - 1
+        self.primero = self.primero.siguiente
+
+    
+
+
+
+
         
 
 
@@ -64,7 +79,8 @@ def main ():
         print("Direccion de myM: " , myM)
         myM.show()
 
-        
+        myM.dequenue(1)
+        myM.show()
 
 if __name__ == "__main__":
     os.system('clear')
