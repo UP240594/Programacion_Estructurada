@@ -42,7 +42,7 @@ class Cola:
             print(currentNode.valor , end="-->")
             currentNode=currentNode.siguiente
 
-        print("Null");
+        print("Null")
 
 
     def dequenue(self):
