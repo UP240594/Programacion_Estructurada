@@ -67,7 +67,6 @@ def evaluar_postfix(vector_p):
     return pila_numeros.pop()
 
 def main():
-    # Ejemplo de prueba: (10 + 5) * 2  => [10, 5, "+", 2, "*"]
     expresion = [10, 5, "+", 2, "*"]
     
     print("Evaluando expresión Postfix:", expresion)
