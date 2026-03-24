@@ -24,60 +24,49 @@ class Pila:
         self.size -= 1
         return valor_extraido 
 
-    def show(self):
-        currentNode = self.top
-        print("Estado de la Pila: ", end="")
-        while currentNode:
-            print(f"[{currentNode.valor}]", end=" -> ")
-            currentNode = currentNode.siguiente
-        print("NULL")
-
-# --- FUNCIÓN DE EVALUACIÓN (Basada en tu algoritmo) ---
-def evaluar_postfix(vector_p):
+def evaluar_postfix(cadena_p):
     pila_numeros = Pila()
     
-    # 1. Agregar ")" al final como centinela
-    vector_p.append(")")
+    elementos = cadena_p.split()
+    elementos.append(")") 
     
-    # 2. Escanear P hasta encontrar ")"
-    for elemento in vector_p:
+    for elemento in elementos:
         if elemento == ")":
             break
             
-        # 3. Si es un operando (número), push a la Stack
-        if isinstance(elemento, (int, float)):
-            pila_numeros.push(elemento)
+        if elemento not in "+-*/^":
+            pila_numeros.push(float(elemento))
             
-        # 4. Si es un operador (+, -, *, /)
         else:
-            # a) B = pop, A = pop
             b = pila_numeros.pop()
-            a = pila_numeros.pop()
+            a = pila_numeros.pop() 
             
-            # b) C = A operador B
             if elemento == "+": c = a + b
             elif elemento == "-": c = a - b
             elif elemento == "*": c = a * b
             elif elemento == "/": c = a / b
+            elif elemento == "^": c = a ** b 
             
-            # c) push(C) a la Stack
             pila_numeros.push(c)
             
-    # Devolver el resultado final
     return pila_numeros.pop()
 
 def main():
-    expresion = [10, 5, "+", 2, "*"]
+    exp1 = "5 6 2 + * 12 4 / -"
+    exp2 = "2 2 3 ^ 2 * 6 4 2 - / - 10 - * 2 -"
     
-    print("Evaluando expresión Postfix:", expresion)
+    print("--- EVALUACIÓN DE POSTFIX ---")
+    
+    res1 = evaluar_postfix(exp1)
+    print(f"Expresión 1: {exp1}")
+    print(f"Resultado: {res1}") 
+    
     print("-" * 30)
     
-    resultado = evaluar_postfix(expresion)
-    
-    print("-" * 30)
-    print(f"RESULTADO FINAL: {resultado}")
+    res2 = evaluar_postfix(exp2)
+    print(f"Expresión 2: {exp2}")
+    print(f"Resultado: {res2}")
 
 if __name__ == "__main__":
-    # Limpiar pantalla según el sistema operativo
     os.system('cls' if os.name == 'nt' else 'clear')
     main()
